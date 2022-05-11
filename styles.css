@@ -23,6 +23,7 @@ body {
    margin: 0 auto;
    margin-top: 10rem;
    border-radius: 10px;
+   border: 1px solid black;
 }
 
 .pad {
@@ -72,6 +73,13 @@ body {
     font-size: 30px;
     height: 5rem;
     width: 5rem;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.num:hover {
+    background-color: #e0e0e0;
+
 }
 
 #zero {
@@ -83,10 +91,22 @@ body {
     width: 11.65rem;
 }
 
+#CE:hover {
+    background-color: #fcaeae;
+}
+
 #C {
     background-color: #de8a8a;
 }
 
+#C:hover {
+    background-color: #fcaeae;
+}
+
 #factors {
     background-color: #e3c284;
+}
+
+#factors:hover {
+    background-color: #fcdfa7;
 }
