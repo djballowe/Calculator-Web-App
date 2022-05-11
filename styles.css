@@ -103,10 +103,20 @@ body {
     background-color: #fcaeae;
 }
 
-#factors {
+.factors {
     background-color: #e3c284;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: .5rem;
+    border: 1px solid black;
+    font-size: 30px;
+    height: 5rem;
+    width: 5rem;
+    border-radius: 10px;
+    cursor: pointer;
 }
 
-#factors:hover {
+.factors:hover {
     background-color: #fcdfa7;
 }
