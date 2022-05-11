@@ -17,7 +17,7 @@ body {
 }
 
 .calculatorBody {
-   height: 40rem;
+   height: auto;
    width: 30rem; 
    background: #b6b8b6;
    margin: 0 auto;
@@ -26,21 +26,36 @@ body {
 }
 
 .pad {
-    padding: 2rem;
+    margin: 2rem;
 }
 
 .screen {
-    height: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-content: flex-end;
+    margin: .5rem;
+    height: 7rem;
     width: auto;
     background-color: white;
     padding: 1rem;
     border: 1px solid black;
     background-color: white;
+    border-radius: 10px;
+    
+}
+
+.mainDigit {
+    font-size: 40px;
+}
+
+.clearDelete {
+    display: flex;
+
 }
 
 .numberpad {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     flex-wrap: wrap;
     align-content: flex-start;
 }
@@ -56,4 +71,21 @@ body {
     font-size: 30px;
     height: 5rem;
     width: 5rem;
+}
+
+#zero {
+    width: 11.65rem;
+}
+
+#CE {
+    background-color: #de8a8a;
+    width: 11.65rem;
+}
+
+#C {
+    background-color: #de8a8a;
+}
+
+#factors {
+    background-color: #e3c284;
 }
