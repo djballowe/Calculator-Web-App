@@ -45,6 +45,10 @@ body {
     font-family: 'ZCOOL QingKe HuangYou', cursive;;
 }
 
+#smallNumbers {
+    display: flex;
+}
+
 
 .mainDigit {
     font-size: 70px;
@@ -52,6 +56,8 @@ body {
 
 .mainDigitContainer {
     display: flex;
+    height: 84px;
+    width: 35.6333;
 }
 
 .clearDelete {
