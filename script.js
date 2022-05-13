@@ -33,17 +33,37 @@ buttons.forEach((button) => {
 })
 
 // listen to buttons and turn them into values
+let value1 = [];
+let value2 = [];
+
+
 function getValues() {
     buttons.forEach((button) => {
         button.addEventListener('click', () => {
-            let value1 = [];
-            value1.push(button.id);
-            return value1;
+            let num = document.getElementById('main').childElementCount;
+            
+            if (num > 1 && button.className === 'factors') {
+                buttons.forEach((button) => {
+                    button.addEventListener('click', () => {
+                        value2.push(button.id);
+                    })
+                })
+            }
+
+            if (value2.length === 0){
+                if (num === 1 && (button.id === '-' || button.id === '+')) {
+                    value1.push(button.id);
+                } else if (num > 1 && button.className !== 'factors') {
+                    value1.push(button.id);
+                }
+            } 
         })
     })
 }
 
-
+getValues();
+console.log(value1);
+console.log(value2);
 
 function add(x, y) {
     
