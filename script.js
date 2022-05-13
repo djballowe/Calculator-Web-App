@@ -27,7 +27,20 @@ buttons.forEach((button) => {
     })
 })
 
+function add(x, y) {
+    
+}
 
+function subtract(x, y) {
 
+}
+
+function multiply(x, y) {
+
+}
+
+function add(x, y) {
+
+}
 
 
