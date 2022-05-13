@@ -23,6 +23,21 @@ buttons.forEach((button) => {
         } else if (button.className === 'factors') {
             content.textContent = button.id;
             small.appendChild(content);
+            for (let i = 0; i < num; i++) {
+                let child = display.lastElementChild;
+                while (child) {
+                    display.removeChild(child);
+                    child = display.lastElementChild;
+                }
+            buttons.forEach((button) => {
+                button.addEventListener('click', () => {
+                    content.classList.add('mainDigit');
+                    content.setAttribute('id', button.id);
+                    content.textContent = button.id;
+                    display.appendChild(content);
+                })
+            })
+        }
         } else {
             content.classList.add('mainDigit');
             content.setAttribute('id', button.id);
