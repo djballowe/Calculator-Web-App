@@ -69,7 +69,6 @@ function getValues() {
                 buttons.forEach((button) => {
                     button.addEventListener('click', () => {
                         value2.push(button.id);
-                        return
                     })
                 })
             }
@@ -84,12 +83,12 @@ function getValues() {
         int1 = value1.join('');
         int2 = value2.join('')
         ans = int1 + int2;
-        return ans;
+        console.log(ans);
     } 
  }
 
 
-console.log(findCalculation());
+
 
 getValues();
 console.log(value1);
