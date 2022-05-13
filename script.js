@@ -63,16 +63,18 @@ function getValues() {
 }
 
 
-// function findCalculation {
-//     buttons.forEach((button) => {
-//         button.addEventListener('click', () => {
-//             let num = document.getElementById('main').childElementCount;
-//             if (value1 > 0 && value1 > 0) {
-//                 if (button.className === 'factors')
-//             }
-//         })
-//     })
-// }
+ function findCalculation() {
+     if (calc === '+') {
+        value1.pop();
+        int1 = value1.join('');
+        int2 = value2.join('')
+        ans = int1 + int2;
+        return ans;
+    } 
+ }
+
+
+console.log(findCalculation());
 
 getValues();
 console.log(value1);
