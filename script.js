@@ -9,20 +9,9 @@ const dummy = document.createElement('div');
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
         
-        const start = document.getElementById('startNumber');
-        const content = document.createElement('div');
-        let num = document.getElementById('main').childElementCount;
         
-        if (num === 1 && button.className !== 'factors') {
-            start.remove();
-            content.textContent = button.id;
-            content.setAttribute('id', button.id);
-            content.classList.add('mainDigit');
-            display.appendChild(content);
-            display.appendChild(dummy);
-        } else if (button.className === 'factors') {
-            content.textContent = button.id;
-            small.appendChild(content);
+        const content = document.createElement('div');
+        if (button.className === 'factors') {
             displayValue2();
 
         } else {
@@ -37,7 +26,6 @@ buttons.forEach((button) => {
 function displayValue2() {
     buttons.forEach((button) => {
         button.addEventListener('click', () => {
-            const content = document.createElement('div');
             for (let i = 0; i < num; i++) {
                 let child = display.lastElementChild;
                 while (child) {
@@ -45,14 +33,6 @@ function displayValue2() {
                     child = display.lastElementChild;
                 }
             }
-            content.textContent = '0';
-            content.classList.add('mainDigit');
-            content.setAttribute('id', 'startNumber');
-            display.appendChild(content);
-            content.classList.add('mainDigit');
-            content.setAttribute('id', button.id);
-            content.textContent = button.id;
-            display.appendChild(content);
         })
     })
 }
