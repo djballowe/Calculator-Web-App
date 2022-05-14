@@ -2,15 +2,15 @@ const display = document.querySelector('#main');
 const small = document.querySelector('#smallNumbers')
 const buttons = document.querySelectorAll('button');
 let num = document.getElementById('main').childElementCount;
-
+const dummy = document.createElement('div');
 // display
+
 
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
         
         const start = document.getElementById('startNumber');
         const content = document.createElement('div');
-        const dummy = document.createElement('div');
         let num = document.getElementById('main').childElementCount;
         
         if (num === 1 && button.className !== 'factors') {
@@ -35,9 +35,9 @@ buttons.forEach((button) => {
 })
 
 function displayValue2() {
-    const content = document.createElement('div');
     buttons.forEach((button) => {
         button.addEventListener('click', () => {
+            const content = document.createElement('div');
             for (let i = 0; i < num; i++) {
                 let child = display.lastElementChild;
                 while (child) {
@@ -45,6 +45,10 @@ function displayValue2() {
                     child = display.lastElementChild;
                 }
             }
+            content.textContent = '0';
+            content.classList.add('mainDigit');
+            content.setAttribute('id', 'startNumber');
+            display.appendChild(content);
             content.classList.add('mainDigit');
             content.setAttribute('id', button.id);
             content.textContent = button.id;
