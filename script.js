@@ -52,7 +52,7 @@ let value1 = [];
 let value2 = [];
 let calc = [];
 
-function getValues() {
+function getValue1() {
     buttons.forEach((button) => {
         button.addEventListener('click', () => {
             let num = document.getElementById('main').childElementCount;
@@ -65,32 +65,63 @@ function getValues() {
                 }
             } 
             if (value1.length > 0 && button.className === 'factors') {
-                calc.push(button.id);
-                buttons.forEach((button) => {
-                    button.addEventListener('click', () => {
-                        value2.push(button.id);
-                    })
-                })
+                if (calc.length === 0) {
+                    calc.push(button.id);
+                    findValue2();
+                }
             }
+            
+        })
+    })
+}
+
+function findValue2() {
+    buttons.forEach((button) => {
+        button.addEventListener('click', () => {
+            if (value1.length > 0 && button.className !== 'factors') {
+                value2.push(button.id);
+            } else if (button.className === 'factors') {
+                findCalculation();
+            }
+            
         })
     })
 }
 
 
- function findCalculation() {
-     if (calc === '+') {
-        value1.pop();
-        int1 = value1.join('');
-        int2 = value2.join('')
-        ans = int1 + int2;
-        console.log(ans);
+function findCalculation() {
+    factor = calc.join('');
+    value1.pop();
+    int1 = parseInt(value1.join(''));
+    int2 = parseInt(value2.join(''));
+    switch (factor) {
+        case '+':
+            ans = int1 + int2;
+            console.log(ans);
+            break;
+
+        case '-':
+            ans = int1 - int2;
+            console.log(ans);
+            break;
+
+        case '*':
+            ans = int1 * int2;
+            console.log(ans);
+            break;
+        
+        case '/':
+            ans = int1 / int2;
+            console.log(ans);
+            break;
+
     } 
+    console.log(factor);
  }
 
 
+getValue1();
 
-
-getValues();
 console.log(value1);
 console.log(value2);
 console.log(calc);
