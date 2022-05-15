@@ -49,42 +49,32 @@ function getValue1() {
     buttons.forEach((button) => {
         button.addEventListener('click', () => {
             let num = document.getElementById('main').childElementCount;
-            
-            if (value2.length === 0 && button.className !== 'factors') {
-                if (num === 1 && (button.id === '-' || button.id === '+')) {
-                    value1.push(button.id);
-                } else if (num > 0 && button.className !== 'factors') {
-                    value1.push(button.id);
+            if (calc.length === 0) {
+                if (value2.length === 0 && button.className !== 'factors') {
+                    if (num === 1 && (button.id === '-' || button.id === '+')) {
+                        value1.push(button.id);
+                    } else if (num > 0 && button.className !== 'factors') {
+                        value1.push(button.id);
+                    }
+                } 
+                if (value1.length > 0 && button.className === 'factors') {
+                    if (calc.length === 0) {
+                        calc.push(button.id);
+                    }
                 }
-            } 
-            if (value1.length > 0 && button.className === 'factors') {
-                if (calc.length === 0) {
-                    calc.push(button.id);
-                    findValue2();
+            } else if (calc.length === 1) {
+                if (value1.length > 0 && button.className !== 'factors') {
+                    value2.push(button.id);
+                } else if (button.className === 'factors' && button.id !== '=') {
+                    findCalculation();
                 }
             }
-            
         })
     })
 }
-
-function findValue2() {
-    buttons.forEach((button) => {
-        button.addEventListener('click', () => {
-            if (value1.length > 0 && button.className !== 'factors') {
-                value2.push(button.id);
-            } else if (button.className === 'factors') {
-                findCalculation();
-            }
-            
-        })
-    })
-}
-
 
 function findCalculation() {
     factor = calc.join('');
-    value1.pop();
     int1 = parseInt(value1.join(''));
     int2 = parseInt(value2.join(''));
     switch (factor) {
