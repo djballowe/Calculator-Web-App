@@ -45,7 +45,7 @@ let value1 = [];
 let value2 = [];
 let calc = [];
 
-function getValue1() {
+function getValue() {
     buttons.forEach((button) => {
         button.addEventListener('click', () => {
             let num = document.getElementById('main').childElementCount;
@@ -57,7 +57,7 @@ function getValue1() {
                         value1.push(button.id);
                     }
                 } 
-                if (value1.length > 0 && button.className === 'factors') {
+                if (value1.length > 0 && button.className === 'factors' && button.id !== '=') {
                     if (calc.length === 0) {
                         calc.push(button.id);
                     }
@@ -81,21 +81,25 @@ function findCalculation() {
         case '+':
             ans = int1 + int2;
             console.log(ans);
+            calc.pop();
             return ans;
 
         case '-':
             ans = int1 - int2;
             console.log(ans);
+            calc.pop();
             return ans;
 
         case '*':
             ans = int1 * int2;
             console.log(ans);
+            calc.pop();
             return ans;
         
         case '/':
             ans = int1 / int2;
             console.log(ans);
+            calc.pop();
             return ans;
 
     } 
@@ -103,7 +107,7 @@ function findCalculation() {
  }
 
 
-getValue1();
+getValue();
 
 console.log(value1);
 console.log(value2);
