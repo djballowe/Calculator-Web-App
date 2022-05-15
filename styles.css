@@ -97,6 +97,10 @@ body {
     width: 11.65rem;
 }
 
+#start {
+    display: block;
+}
+
 #CE {
     background-color: #de8a8a;
     width: 11.65rem;

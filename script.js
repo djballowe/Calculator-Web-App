@@ -3,22 +3,23 @@ const small = document.querySelector('#smallNumbers')
 const buttons = document.querySelectorAll('button');
 let num = document.getElementById('main').childElementCount;
 const dummy = document.createElement('div');
-// display
 
+// display
 
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
-        
-        
         const content = document.createElement('div');
-        if (num > 0 && button.className === 'factors' && button.id !== '=') {
+        
+
+        if (num > 1 && button.className === 'factors' && button.id !== '=') {
             clearValues();
 
-        } else if (num === 0 && button.id === 'factors' && button.id !== '=') {
+        } else if (num === 1 && button.id === 'factors' && button.id !== '=') {
             content.classList.add('mainDigit');
             content.setAttribute('id', button.id);
             content.textContent = button.id;
             display.appendChild(content);
+            onStart();
         } else if (button.id === '=') {
             clearValues();
             content.classList.add('mainDigit');
@@ -29,15 +30,17 @@ buttons.forEach((button) => {
             content.setAttribute('id', button.id);
             content.textContent = button.id;
             display.appendChild(content);
+            onStart();
         }
     })
 })
 
+// starting with 0 on load and CE
+
 function onStart() {
-    content.classList.add('startDigit');
-    content.setAttribute('id', '0');
-    content.textContent = '0';
-    display.appendChild(content);
+    if (num === 1) {
+        document.getElementById("start").style.display="none";
+    }
 }
 
 function clearValues() {
@@ -52,7 +55,8 @@ function clearValues() {
 }
 
 
-// listen to buttons and turn them into values
+// listen to buttons and populate arrays
+
 let value1 = [];
 let value2 = [];
 let calc = [];
@@ -67,10 +71,7 @@ function getValue() {
                         value1.push(button.id);
                     } else if (num > 0 && button.className !== 'factors') {
                         value1.push(button.id);
-                    }
-                } 
-                if (value1.length >= 1 && button.className === 'factors' && button.id !== '=') {
-                    if (calc.length === 0) {
+                    } else if (value1.length >= 1 && button.className === 'factors' && button.id !== '=') {
                         calc.push(button.id);
                     }
                 }
@@ -84,6 +85,8 @@ function getValue() {
         })
     })
 }
+
+// join arrays and turn them into ints, Find correct operand, return the answer and clear arrays.
 
 function findCalculation() {
     factor = calc.join('');
@@ -130,9 +133,6 @@ function clearValue() {
     value2.splice(0, value2.length);
     value1.splice(0, value1.length);
 }
-
-
-
 
 
 getValue();
