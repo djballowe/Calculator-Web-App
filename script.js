@@ -12,7 +12,7 @@ buttons.forEach((button) => {
         
         const content = document.createElement('div');
         if (button.className === 'factors') {
-            displayValue2();
+            clearValues();
 
         } else {
             content.classList.add('mainDigit');
@@ -23,18 +23,15 @@ buttons.forEach((button) => {
     })
 })
 
-function displayValue2() {
-    buttons.forEach((button) => {
-        button.addEventListener('click', () => {
-            for (let i = 0; i < num; i++) {
-                let child = display.lastElementChild;
-                while (child) {
-                    display.removeChild(child);
-                    child = display.lastElementChild;
-                }
-            }
-        })
-    })
+function clearValues() {
+    let num = document.getElementById('main').childElementCount;
+    for (let i = 0; i < num; i++) {
+        let child = display.lastElementChild;
+        while (child) {
+            display.removeChild(child);
+            child = display.lastElementChild;
+        }
+    }
 }
 
 
