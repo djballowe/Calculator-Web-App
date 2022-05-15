@@ -82,29 +82,45 @@ function findCalculation() {
             ans = int1 + int2;
             console.log(ans);
             calc.pop();
+            clearValue();
+            value1.push(ans);
             return ans;
 
         case '-':
             ans = int1 - int2;
             console.log(ans);
             calc.pop();
+            clearValue();
+            value1.push(ans);
             return ans;
 
         case '*':
             ans = int1 * int2;
             console.log(ans);
             calc.pop();
+            clearValue();
+            value1.push(ans);
             return ans;
         
         case '/':
             ans = int1 / int2;
             console.log(ans);
             calc.pop();
+            clearValue();
+            value1.push(ans);
             return ans;
 
     } 
     console.log(factor);
- }
+}
+
+function clearValue() {
+    value2.splice(0, value2.length);
+    value1.splice(0, value1.length);
+}
+
+
+
 
 
 getValue();
@@ -113,18 +129,3 @@ console.log(value1);
 console.log(value2);
 console.log(calc);
 
-function add(x, y) {
-    
-}
-
-function subtract(x, y) {
-
-}
-
-function multiply(x, y) {
-
-}
-
-function divide(x, y) {
-
-}
