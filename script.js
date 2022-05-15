@@ -11,9 +11,14 @@ buttons.forEach((button) => {
         
         
         const content = document.createElement('div');
-        if (button.className === 'factors' && button.id !== '=') {
+        if (num > 0 && button.className === 'factors' && button.id !== '=') {
             clearValues();
 
+        } else if (num === 0 && button.id === 'factors' && button.id !== '=') {
+            content.classList.add('mainDigit');
+            content.setAttribute('id', button.id);
+            content.textContent = button.id;
+            display.appendChild(content);
         } else if (button.id === '=') {
             clearValues();
             content.classList.add('mainDigit');
@@ -50,14 +55,14 @@ function getValue() {
         button.addEventListener('click', () => {
             let num = document.getElementById('main').childElementCount;
             if (calc.length === 0) {
-                if (value2.length === 0 && button.className !== 'factors') {
-                    if (num === 1 && (button.id === '-' || button.id === '+')) {
+                if (value2.length === 0 && button.className !== '=') {
+                    if (value1.length === 0 && (button.id === '-' || button.id === '+')) {
                         value1.push(button.id);
                     } else if (num > 0 && button.className !== 'factors') {
                         value1.push(button.id);
                     }
                 } 
-                if (value1.length > 0 && button.className === 'factors' && button.id !== '=') {
+                if (value1.length >= 1 && button.className === 'factors' && button.id !== '=') {
                     if (calc.length === 0) {
                         calc.push(button.id);
                     }
