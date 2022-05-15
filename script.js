@@ -33,6 +33,13 @@ buttons.forEach((button) => {
     })
 })
 
+function onStart() {
+    content.classList.add('startDigit');
+    content.setAttribute('id', '0');
+    content.textContent = '0';
+    display.appendChild(content);
+}
+
 function clearValues() {
     let num = document.getElementById('main').childElementCount;
     for (let i = 0; i < num; i++) {
