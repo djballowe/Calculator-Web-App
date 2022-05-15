@@ -11,9 +11,14 @@ buttons.forEach((button) => {
         
         
         const content = document.createElement('div');
-        if (button.className === 'factors') {
+        if (button.className === 'factors' && button.id !== '=') {
             clearValues();
 
+        } else if (button.id === '=') {
+            clearValues();
+            content.classList.add('mainDigit');
+            content.textContent = findCalculation();
+            display.appendChild(content);
         } else {
             content.classList.add('mainDigit');
             content.setAttribute('id', button.id);
