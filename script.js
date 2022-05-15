@@ -9,28 +9,31 @@ const dummy = document.createElement('div');
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
         const content = document.createElement('div');
-        
 
         if (num > 1 && button.className === 'factors' && button.id !== '=') {
-            clearValues();
+            clearDisplay();
 
         } else if (num === 1 && button.id === 'factors' && button.id !== '=') {
             content.classList.add('mainDigit');
             content.setAttribute('id', button.id);
             content.textContent = button.id;
             display.appendChild(content);
-            onStart();
+            
         } else if (button.id === '=') {
-            clearValues();
+            clearDisplay();
             content.classList.add('mainDigit');
             content.textContent = findCalculation();
             display.appendChild(content);
+        } else if (button.id === 'CE') {
+            clearDisplay();
+            clearValue();
+            calc.splice(0, calc.length);
         } else {
             content.classList.add('mainDigit');
             content.setAttribute('id', button.id);
             content.textContent = button.id;
             display.appendChild(content);
-            onStart();
+            
         }
     })
 })
@@ -39,11 +42,11 @@ buttons.forEach((button) => {
 
 function onStart() {
     if (num === 1) {
-        document.getElementById("start").style.display="none";
+        document.getElementById("start").style.display="block";
     }
 }
 
-function clearValues() {
+function clearDisplay() {
     let num = document.getElementById('main').childElementCount;
     for (let i = 0; i < num; i++) {
         let child = display.lastElementChild;
@@ -64,7 +67,7 @@ let calc = [];
 function getValue() {
     buttons.forEach((button) => {
         button.addEventListener('click', () => {
-            let num = document.getElementById('main').childElementCount;
+        let num = document.getElementById('main').childElementCount;
             if (calc.length === 0) {
                 if (value2.length === 0 && button.className !== '=') {
                     if (value1.length === 0 && (button.id === '-' || button.id === '+')) {
