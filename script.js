@@ -1,5 +1,5 @@
 const display = document.querySelector('#main');
-const small = document.querySelector('#smallNumbers')
+const small = document.querySelector('#smallNumbers');
 const buttons = document.querySelectorAll('button');
 let num = document.getElementById('main').childElementCount;
 const dummy = document.createElement('div');
@@ -9,7 +9,7 @@ const dummy = document.createElement('div');
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
         const content = document.createElement('div');
-
+        onStart();
         if (num > 1 && button.className === 'factors' && button.id !== '=') {
             clearDisplay();
 
@@ -28,6 +28,7 @@ buttons.forEach((button) => {
             clearDisplay();
             clearValue();
             calc.splice(0, calc.length);
+            onStart();
         } else {
             content.classList.add('mainDigit');
             content.setAttribute('id', button.id);
@@ -39,10 +40,14 @@ buttons.forEach((button) => {
 })
 
 // starting with 0 on load and CE
+onStart();
 
 function onStart() {
+    let x = document.getElementById('start');
     if (num === 1) {
-        document.getElementById("start").style.display="block";
+        x.style.display="block";
+    } else {
+        x.style.display="none";
     }
 }
 
