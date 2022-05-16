@@ -4,12 +4,14 @@ const buttons = document.querySelectorAll('button');
 let num = document.getElementById('main').childElementCount;
 const dummy = document.createElement('div');
 
+
 // display
+
 
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
         const content = document.createElement('div');
-        
+        const x = document.getElementById('start');
         if (num > 1 && button.className === 'factors' && button.id !== '=') {
             clearDisplay();
 
@@ -31,6 +33,7 @@ buttons.forEach((button) => {
             onStart();
             
         } else {
+            x.style.display = 'none';
             content.classList.add('mainDigit');
             content.setAttribute('id', button.id);
             content.textContent = button.id;
@@ -40,20 +43,16 @@ buttons.forEach((button) => {
     })
 })
 
+
 // starting with 0 on load and CE
-onStart();
+
 
 function onStart() {
     const x = document.createElement('div');
     x.classList.add('mainDigit');
     x.setAttribute('id', 'start');
-    x.textContent = '0'
+    x.textContent = '0';
     display.appendChild(x);
-    if (num === 1) {
-        x.style.display="none";
-    } else {
-        x.style.display="block";
-    }
 }
 
 function clearDisplay() {
@@ -147,7 +146,7 @@ function clearValue() {
     value1.splice(0, value1.length);
 }
 
-
+onStart();
 getValue();
 
 console.log(value1);
