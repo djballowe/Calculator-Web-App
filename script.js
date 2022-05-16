@@ -13,6 +13,9 @@ buttons.forEach((button) => {
     button.addEventListener('click', () => {
         const content = document.createElement('div');
         const x = document.getElementById('start');
+        if (value1.length === 0) {
+            x.style.display = 'none';
+        }
         if (num > 1 && button.className === 'factors' && button.id !== '=') {
             clearDisplay();
 
@@ -36,14 +39,11 @@ buttons.forEach((button) => {
             calc.splice(0, calc.length);
             onStart();
             
-            
         } else {
-            
             content.classList.add('mainDigit');
             content.setAttribute('id', button.id);
             content.textContent = button.id;
-            display.appendChild(content);
-            
+            display.appendChild(content); 
         }
     })
 })
