@@ -52,13 +52,16 @@ body {
 
 
 .mainDigit {
-    font-size: 70px;
+    font-size: 6vw;
 }
 
 .mainDigitContainer {
     display: flex;
-    height: 84px;
-    width: 35.6333;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    height: 112px;
+    width: 366px;
 }
 
 .clearDelete {

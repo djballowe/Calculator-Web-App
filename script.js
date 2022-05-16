@@ -33,7 +33,7 @@ buttons.forEach((button) => {
             calc.splice(0, calc.length);
             
 
-        } else if (button.id === 'CE') {
+        } else if (button.id === 'CE' || button.id === 'C') {
             clearDisplay();
             clearValue();
             calc.splice(0, calc.length);
@@ -151,7 +151,6 @@ function findCalculation() {
             value1.push(ans);
             smallDisplay();
             return ans;
-
     } 
 }
 
