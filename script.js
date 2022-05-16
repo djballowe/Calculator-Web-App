@@ -92,6 +92,7 @@ function getValue() {
                     value2.push(button.id);
                 } else if (button.className === 'factors' && button.id !== '=') {
                     findCalculation();
+                    calc[0] = button.id;
                 }
             }
         })
@@ -108,7 +109,7 @@ function findCalculation() {
         case '+':
             ans = int1 + int2;
             console.log(ans);
-            calc.pop();
+            
             clearValue();
             value1.push(ans);
             return ans;
@@ -116,7 +117,7 @@ function findCalculation() {
         case '-':
             ans = int1 - int2;
             console.log(ans);
-            calc.pop();
+            
             clearValue();
             value1.push(ans);
             return ans;
@@ -124,7 +125,7 @@ function findCalculation() {
         case '*':
             ans = int1 * int2;
             console.log(ans);
-            calc.pop();
+            
             clearValue();
             value1.push(ans);
             return ans;
@@ -132,7 +133,7 @@ function findCalculation() {
         case '/':
             ans = int1 / int2;
             console.log(ans);
-            calc.pop();
+            
             clearValue();
             value1.push(ans);
             return ans;
