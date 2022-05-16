@@ -1,4 +1,5 @@
 const display = document.querySelector('#main');
+const startNumber = document.querySelector('#startNumberContainer');
 const small = document.querySelector('#smallNumbers');
 const buttons = document.querySelectorAll('button');
 let num = document.getElementById('main').childElementCount;
@@ -24,8 +25,10 @@ buttons.forEach((button) => {
         } else if (button.id === '=') {
             clearDisplay();
             content.classList.add('mainDigit');
-            content.textContent = ans;
+            content.textContent = findCalculation();
             display.appendChild(content);
+            calc.splice(0, calc.length);
+            
 
         } else if (button.id === 'CE') {
             clearDisplay();
@@ -33,8 +36,9 @@ buttons.forEach((button) => {
             calc.splice(0, calc.length);
             onStart();
             
+            
         } else {
-            x.style.display = 'none';
+            
             content.classList.add('mainDigit');
             content.setAttribute('id', button.id);
             content.textContent = button.id;
@@ -68,6 +72,7 @@ function onStart() {
 // clear the main display
 
 function clearDisplay() {
+    const x = document.createElement('div');
     let num = document.getElementById('main').childElementCount;
     for (let i = 0; i < num; i++) {
         let child = display.lastElementChild;
@@ -153,6 +158,7 @@ function findCalculation() {
 function clearValue() {
     value2.splice(0, value2.length);
     value1.splice(0, value1.length);
+
 }
 
 onStart();
