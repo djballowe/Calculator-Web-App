@@ -5,7 +5,7 @@ let num = document.getElementById('main').childElementCount;
 const dummy = document.createElement('div');
 
 
-// display
+// main display
 
 
 buttons.forEach((button) => {
@@ -24,8 +24,9 @@ buttons.forEach((button) => {
         } else if (button.id === '=') {
             clearDisplay();
             content.classList.add('mainDigit');
-            content.textContent = findCalculation();
+            content.textContent = ans;
             display.appendChild(content);
+
         } else if (button.id === 'CE') {
             clearDisplay();
             clearValue();
@@ -43,6 +44,15 @@ buttons.forEach((button) => {
     })
 })
 
+// small display
+
+function smallDisplay() {
+    const a = document.createElement('div');
+    a.setAttribute('id', 'smallNum');
+    a.textContent = findCalculation();
+    small.appendChild(a);
+}
+
 
 // starting with 0 on load and CE
 
@@ -54,6 +64,8 @@ function onStart() {
     x.textContent = '0';
     display.appendChild(x);
 }
+
+// clear the main display
 
 function clearDisplay() {
     let num = document.getElementById('main').childElementCount;
@@ -99,7 +111,7 @@ function getValue() {
     })
 }
 
-// join arrays and turn them into ints, Find correct operand, return the answer and clear arrays.
+// join arrays and turn them into floats, Find correct operand, return the answer and clear arrays.
 
 function findCalculation() {
     factor = calc.join('');
