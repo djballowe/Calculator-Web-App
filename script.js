@@ -103,13 +103,12 @@ function getValue() {
 
 function findCalculation() {
     factor = calc.join('');
-    int1 = parseInt(value1.join(''));
-    int2 = parseInt(value2.join(''));
+    int1 = parseFloat(value1.join(''));
+    int2 = parseFloat(value2.join(''));
     switch (factor) {
         case '+':
             ans = int1 + int2;
             console.log(ans);
-            
             clearValue();
             value1.push(ans);
             return ans;
@@ -117,7 +116,6 @@ function findCalculation() {
         case '-':
             ans = int1 - int2;
             console.log(ans);
-            
             clearValue();
             value1.push(ans);
             return ans;
@@ -125,7 +123,6 @@ function findCalculation() {
         case '*':
             ans = int1 * int2;
             console.log(ans);
-            
             clearValue();
             value1.push(ans);
             return ans;
@@ -133,7 +130,6 @@ function findCalculation() {
         case '/':
             ans = int1 / int2;
             console.log(ans);
-            
             clearValue();
             value1.push(ans);
             return ans;
