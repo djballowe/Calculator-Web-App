@@ -98,7 +98,7 @@ body {
 }
 
 #start {
-    display: none;
+    display: block;
 }
 
 #CE {

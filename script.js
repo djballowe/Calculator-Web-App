@@ -9,7 +9,7 @@ const dummy = document.createElement('div');
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
         const content = document.createElement('div');
-        onStart();
+        
         if (num > 1 && button.className === 'factors' && button.id !== '=') {
             clearDisplay();
 
@@ -29,6 +29,7 @@ buttons.forEach((button) => {
             clearValue();
             calc.splice(0, calc.length);
             onStart();
+            
         } else {
             content.classList.add('mainDigit');
             content.setAttribute('id', button.id);
@@ -43,11 +44,15 @@ buttons.forEach((button) => {
 onStart();
 
 function onStart() {
-    let x = document.getElementById('start');
+    const x = document.createElement('div');
+    x.classList.add('mainDigit');
+    x.setAttribute('id', 'start');
+    x.textContent = '0'
+    display.appendChild(x);
     if (num === 1) {
-        x.style.display="block";
-    } else {
         x.style.display="none";
+    } else {
+        x.style.display="block";
     }
 }
 
@@ -71,15 +76,15 @@ let calc = [];
 
 function getValue() {
     buttons.forEach((button) => {
-        button.addEventListener('click', () => {
+    button.addEventListener('click', () => {
         let num = document.getElementById('main').childElementCount;
             if (calc.length === 0) {
-                if (value2.length === 0 && button.className !== '=') {
+                if (value2.length === 0 && button.className !== '=' && button.id !== 'CE' && button.id !== 'C') {
                     if (value1.length === 0 && (button.id === '-' || button.id === '+')) {
                         value1.push(button.id);
                     } else if (num > 0 && button.className !== 'factors') {
                         value1.push(button.id);
-                    } else if (value1.length >= 1 && button.className === 'factors' && button.id !== '=') {
+                    } else if (value1.length >= 1 && button.className === 'factors' && button.id !== '=' ) {
                         calc.push(button.id);
                     }
                 }
