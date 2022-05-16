@@ -48,15 +48,6 @@ buttons.forEach((button) => {
     })
 })
 
-// small display
-
-function smallDisplay() {
-    const a = document.createElement('div');
-    a.setAttribute('id', 'smallNum');
-    a.textContent = findCalculation();
-    small.appendChild(a);
-}
-
 
 // starting with 0 on load and CE
 
@@ -72,13 +63,19 @@ function onStart() {
 // clear the main display
 
 function clearDisplay() {
-    const x = document.createElement('div');
     let num = document.getElementById('main').childElementCount;
     for (let i = 0; i < num; i++) {
         let child = display.lastElementChild;
         while (child) {
             display.removeChild(child);
             child = display.lastElementChild;
+        }
+    }
+    for (let i = 0; i < num; i++) {
+        let child = small.lastElementChild;
+        while (child) {
+            small.removeChild(child);
+            child = small.lastElementChild;
         }
     }
 }
@@ -128,6 +125,7 @@ function findCalculation() {
             console.log(ans);
             clearValue();
             value1.push(ans);
+            smallDisplay();
             return ans;
 
         case '-':
@@ -135,6 +133,7 @@ function findCalculation() {
             console.log(ans);
             clearValue();
             value1.push(ans);
+            smallDisplay();
             return ans;
 
         case '*':
@@ -142,6 +141,7 @@ function findCalculation() {
             console.log(ans);
             clearValue();
             value1.push(ans);
+            smallDisplay();
             return ans;
         
         case '/':
@@ -149,16 +149,34 @@ function findCalculation() {
             console.log(ans);
             clearValue();
             value1.push(ans);
+            smallDisplay();
             return ans;
 
     } 
-    console.log(factor);
 }
 
 function clearValue() {
     value2.splice(0, value2.length);
     value1.splice(0, value1.length);
 
+}
+
+
+
+function smallDisplay() {
+    const a = document.createElement('div');
+    let localsOnly = value1.join('');
+    let num = document.getElementById('smallNumbers').childElementCount;
+    for (let i = 0; i < num; i++) {
+        let child = small.lastElementChild;
+        while (child) {
+            small.removeChild(child);
+            child = small.lastElementChild;
+        }
+    }
+    a.setAttribute('id', 'smallNum');
+    a.textContent = localsOnly;
+    small.appendChild(a);
 }
 
 onStart();

@@ -97,6 +97,10 @@ body {
     width: 11.65rem;
 }
 
+#smallNum {
+    font-size: 35px;
+}
+
 #start {
     display: block;
 }
